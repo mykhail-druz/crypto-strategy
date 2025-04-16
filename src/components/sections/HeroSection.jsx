@@ -20,13 +20,17 @@ const HeroSection = () => {
         ? '/videos/dark_hero_video.mp4'
         : '/videos/light_hero_video.mp4'
 
+    const headlineGradient = darkMode
+        ? 'bg-gradient-to-b from-[#E7E7E7] to-[#BEBEBE]'
+        : 'bg-gradient-to-b from-[#4F4F4F] to-[#272727]'
+
     return (
         <section className="relative h-[200vh]">
             <div
                 className={`sticky top-0 h-screen w-full transition-all duration-700 ease-in-out
           ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}
             >
-                <header className="flex justify-between items-center px-4 sm:px-12 py-6 mb-16 transition-all duration-700 ease-in-out">
+                <header className="flex justify-between items-center px-4 sm:px-12 py-6 mb-4 transition-all duration-700 ease-in-out">
                     <img
                         src={logoSrc}
                         alt="Logo"
@@ -49,7 +53,9 @@ const HeroSection = () => {
                 <div
                     className={`${darkMode ? 'text-end' : ''} mb-12 px-4 sm:px-12`}
                 >
-                    <h1 className="text-4xl sm:text-[80px] leading-[1.1] font-light transition-colors duration-700 ease-in-out">
+                    <h1
+                        className={`text-4xl sm:text-[80px] leading-[1.1] font-light transition-colors duration-700 ease-in-out bg-clip-text text-transparent ${headlineGradient}`}
+                    >
                         <span>Remarkable</span>
                         <br />
                         <strong className="font-bold">
@@ -72,7 +78,6 @@ const HeroSection = () => {
                             className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ease-in-out"
                         />
 
-                        {/* Сам грид: адаптивно меняем кол-во колонок */}
                         <div className="grid grid-cols-2 grid-rows-5 sm:grid-cols-5 sm:grid-rows-2 h-full gap-0">
                             {Array.from({ length: 10 }).map((_, i) => {
                                 const corners =
@@ -94,7 +99,7 @@ const HeroSection = () => {
                                     >
                                         {isText && (
                                             <p
-                                                className={`text-[18px] sm:text-[32px] font-light leading-[100%] pl-[10%] sm:pl-[30%] transition-colors duration-700 ease-in-out ${darkMode ? 'text-white' : 'text-black'}`}
+                                                className={`text-[18px] md:text-[24px] 2xl:text-[32px] font-light leading-[100%] pl-[10%] sm:pl-[30%] transition-colors duration-700 ease-in-out ${darkMode ? 'text-white' : 'text-black'}`}
                                             >
                                                 Lorem ipsum dolor sit amet,
                                                 consectetur adipiscing elit, sed
